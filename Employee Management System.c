@@ -1,10 +1,10 @@
 #include<stdio.h>
 #include<string.h>
 
-int emp_count=0;
+int emp_count=0; //global variable created for emp_count
 //char name1[24];
 
-struct employee	
+struct employee
 {
 	int emp_id;
 	char name[24];
@@ -19,10 +19,10 @@ struct employee emp[10];
 
 void insert_employee_record()
 {
-	
-		if(emp_count<3)	
+
+		if(emp_count<3)
 		{
-			
+
 			printf("Enter Employee ID: ");
 			scanf("%d",&emp[emp_count].emp_id);
 			printf("\n");
@@ -36,31 +36,31 @@ void insert_employee_record()
 			printf("Enter Basic Salary: ");
 			scanf("%f",&emp[emp_count].basicSalary);
 			printf("\n\n");
-			
-			
-					
-	
+
+
+
+
 			if(emp[emp_count].basicSalary<=2000)
 			{
 				emp[emp_count].hra=(0.25*emp[emp_count].basicSalary);
 				emp[emp_count].da=(0.15*emp[emp_count].basicSalary);
 				emp[emp_count].grossSalary=emp[emp_count].basicSalary+emp[emp_count].hra+emp[emp_count].da;
 			}
-			
+
 			else if(emp[emp_count].basicSalary>2000&&emp[emp_count].basicSalary<5000)
 			{
 				emp[emp_count].hra=(0.20*emp[emp_count].basicSalary);
 				emp[emp_count].da=(0.10*emp[emp_count].basicSalary);
 				emp[emp_count].grossSalary=emp[emp_count].basicSalary+emp[emp_count].hra+emp[emp_count].da;
 			}
-			
+
 			else
 			{
 				emp[emp_count].hra=(0.10*emp[emp_count].basicSalary);
 				emp[emp_count].da=(0.05*emp[emp_count].basicSalary);
 				emp[emp_count].grossSalary=emp[emp_count].basicSalary+emp[emp_count].hra+emp[emp_count].da;
-			}	
-			
+			}
+
 			emp_count++;
 	}
 	else
@@ -88,44 +88,44 @@ int insert_employee_record_basicsalary(index_basicsalary)
 		printf("Enter Basic Salary: ");
 		scanf("%f",&emp[index_basicsalary].basicSalary);
 		printf("\n");
-		
-			
+
+
 			if(emp[index_basicsalary].basicSalary<=2000)
 			{
 				emp[index_basicsalary].hra=(0.25*emp[index_basicsalary].basicSalary);
 				emp[index_basicsalary].da=(0.15*emp[index_basicsalary].basicSalary);
 				emp[index_basicsalary].grossSalary=emp[index_basicsalary].basicSalary+emp[index_basicsalary].hra+emp[index_basicsalary].da;
 			}
-			
+
 			else if(emp[index_basicsalary].basicSalary>2000&&emp[index_basicsalary].basicSalary<5000)
 			{
 				emp[index_basicsalary].hra=(0.20*emp[index_basicsalary].basicSalary);
 				emp[index_basicsalary].da=(0.10*emp[index_basicsalary].basicSalary);
 				emp[index_basicsalary].grossSalary=emp[index_basicsalary].basicSalary+emp[index_basicsalary].hra+emp[index_basicsalary].da;
 			}
-			
+
 			else
 			{
 				emp[index_basicsalary].hra=(0.10*emp[index_basicsalary].basicSalary);
 				emp[index_basicsalary].da=(0.05*emp[index_basicsalary].basicSalary);
 				emp[index_basicsalary].grossSalary=emp[index_basicsalary].basicSalary+emp[index_basicsalary].hra+emp[index_basicsalary].da;
 			}
-	
+
 }
 
 void edit_emp_record()
 {
 	int choice;
 	printf("\nPress the option you want to change:-\n\n");
-	
+
 	printf("(1).Edit Employee Name\n\n");
 	printf("(2).Edit Mobile Number\n\n");
 	printf("(3).Edit Basic Salary\n\n");
-	
+
 	printf("Enter your choice: ");
 	scanf("%d",&choice);
 	system("cls");
-	
+
 	switch(choice)
 	{
 		case 1:
@@ -138,7 +138,7 @@ void edit_emp_record()
 			if (index_name!=-1)
 				insert_employee_record_name(index_name);
 			break;
-			
+
 		case 2:
 			printf("Edit Mobile Number:-");
 			int input_id_number,index_number;
@@ -149,7 +149,7 @@ void edit_emp_record()
 			if (index_number!=-1)
 				insert_employee_record_number(index_number);
 			break;
-			
+
 		case 3:
 			printf("Edit Basic Salary:-");
 			int input_id_basicsalary,index_basicsalary;
@@ -162,7 +162,7 @@ void edit_emp_record()
 			break;
 		default:
 			printf("Enter correct choice");
-			
+
 	}
 
 }
@@ -180,8 +180,8 @@ void display_emp_record()
 				printf("Your HRA is: %f\n",emp[count].hra);
 				printf("Your DA is: %f\n",emp[count].da);
 				printf("Your Gross Salary is: %f\n",emp[count].grossSalary);
-				printf("\n\n");	
-	}					
+				printf("\n\n");
+	}
 }
 
 int search_emp_record(int input_id)
@@ -200,12 +200,12 @@ int search_emp_record(int input_id)
 			printf("Your DA is: %f\n",emp[index].da);
 			printf("Your Gross Salary is: %f\n",emp[index].grossSalary);
 			return index;
-		}	
-	}	
+		}
+	}
 	printf("Your ID is not found!!!");
 	return -1;
-	
-	
+
+
 }
 
 void main()
@@ -214,35 +214,35 @@ void main()
 	do
 	{
 	printf("\nPress the number for following options :-\n\n");
-	
+
 	printf("(1).Insert Employee Record\n\n");
 	printf("(2).Edit Employee Record\n\n");
 	printf("(3).Display Employee Record\n\n");
 	printf("(4).Search Employee Record\n\n");
 	printf("(5).Exit\n\n");
-	
-	
+
+
 	printf("Enter your choice: ");
 	scanf("%d",&choice);
 	system("cls");
-	
+
 	switch(choice)
-	{	
+	{
 		case 1:
 			printf("\nInsert Employee Record:-\n\n");
 			insert_employee_record();
 			break;
-			
+
 		case 2:
 			printf("\nEdit Employee Record:-\n\n");
 			edit_emp_record();
 			break;
-			
+
 		case 3:
 			printf("\nDisplay Employee Record:-\n\n");
 			display_emp_record();
 			break;
-			
+
 		case 4:
 			printf("Search Employee Record:-\n\n");
 			int input_id,index=0;
@@ -250,16 +250,16 @@ void main()
 			scanf("%d",&input_id);
 			search_emp_record(input_id);
 			break;
-			
+
 		case 5:
 			printf("You are exit from the program!!!");
 			exit(0);
 			break;
-			
+
 		default:
 			printf("Please enter correct choice!!!");
 			break;
 	}
-	
+
 }while(1);
 }
