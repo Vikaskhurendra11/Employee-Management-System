@@ -174,7 +174,6 @@ void display_emp_record()
 	{
 				printf("Your Employee ID: %d\n",emp[count].emp_id);
 				printf("Your Employee Name: %s\n",emp[count].name);
-				puts(emp[emp_count].name);
 				printf("Your Mobile Number: %s\n",emp[count].mob_no);
 				printf("Your Basic Salary: %f\n",emp[count].basicSalary);
 				printf("Your HRA is: %f\n",emp[count].hra);
